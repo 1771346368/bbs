@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      margin: 20px 0 0 0;
+    }
+    .left {
+      float: left;
+    }
+    .main {
+      width: 100%;
+    }
+    .container {
+      width: 400px;
+      margin: 30px auto;
+      text-align: center;
+      box-shadow: 2px 2px 4px #ccc, -2px -2px 4px #ccc;
+      padding: 1px;
+    }
+    form {
+      width: 400px;
+      padding: 1px 0 0 0;
+    }
+    input {
+      outline: none;
+      width: 300px;
+      line-height: 22px;
+      padding: 13px 16px 13px 14px;
+      border: 1px solid #333
+    }
+    [type=submit] {
+      width: 332px;
+      background: #ff6700;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+    .top {
+      margin: 25px 0 0 0;
+    }
+    label {
+      display: block;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h2>用户注册</h2>
+      <form action="./user/update" method="get">
+          <label for="" class="top">
+            <input type="text" name='uid' value placeholder="编号">
+          </label>
+          <label for="">
+            <input type="email" name="email" value placeholder="邮箱" >
+          </label>
+          <label for="">
+            <input type="text" name="uname" value placeholder="姓名">
+          </label>
+          <label for="">
+            <input type="text" name="gender" value placeholder="性别">
+          </label>
+          <label for="">
+            <input type="text" name="phone" value placeholder="电话">
+          </label>
+          <input type="submit" value="提交">
+      </form>
+    </div>
+</body>
+</html>

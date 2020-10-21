@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      margin: 50px 0 0 0;
+    }
+    .main {
+      width: 100%;
+    }
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      text-align: center;
+      box-shadow: 2px 2px 4px #ccc, -2px -2px 4px #ccc;
+      padding: 1px;
+    }
+    form {
+      width: 400px;
+      padding: 1px 0 0 0;
+    }
+    input {
+      outline: none;
+      width: 300px;
+      line-height: 22px;
+      padding: 13px 16px 13px 14px;
+      border: 1px solid #333
+    }
+    [type=submit] {
+      width: 332px;
+      background: #d9534f;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    .top {
+      margin: 25px 0 0 0;
+    }
+    label {
+      display: block;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h2>用户删除</h2>
+      <form action="./user/delete" method="get">
+          <label for="" class="top">
+            <input type="text" name='uid' value placeholder="用户编号">
+          </label>
+          <input type="submit" value="删除用户">
+      </form>
+    </div>
+</body>
+</html>

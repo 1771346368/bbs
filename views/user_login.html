@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery/dist/jquery.js"></script>
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: #333;
+      margin: 50px 0 0 0;
+    }
+
+    .main {
+      width: 100%;
+    }
+
+    .container {
+      width: 400px;
+      margin: 100px auto;
+      text-align: center;
+      box-shadow: 2px 2px 4px #ccc, -2px -2px 4px #ccc;
+      padding: 1px;
+      background-color: rgba(255, 255, 255, .7);
+    }
+
+    form {
+      width: 400px;
+      padding: 1px 0 0 0;
+    }
+
+    input {
+      outline: none;
+      width: 300px;
+      line-height: 22px;
+      padding: 13px 16px 13px 14px;
+      border: 1px solid #999
+    }
+
+    [type=button] {
+      width: 332px;
+      background: #32aa66;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .top {
+      margin: 25px 0 0 0;
+    }
+
+    label {
+      display: block;
+      margin: 30px auto;
+    }
+
+    #ualert,
+    #falert {
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      height: 60px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    #bottom>a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="alert alert-success fade" id='ualert' role="alert">登录成功</div>
+  <div class="alert alert-danger fade" id='falert' role="alert">登录失败</div>
+  <div class="container">
+    <h2>用户登录</h2>
+    <form id="login">
+      <label for="" class="top">
+        <input type="text" id="email" name='email' value placeholder="邮箱">
+      </label>
+      <label for="">
+        <input type="password" id="password" name="upwd" value placeholder="密码">
+      </label>
+      <input type="button" value="登录" id="button">
+    </form>
+    <p id="bottom">
+      <a href="/">返回主页</a>
+      <span>没有账号？点击</span><a href="/regist">注册</a>
+    </p>
+  </div>
+</body>
+
+<script>
+  $('#button').on('click', function (e) {
+    $.ajax({
+      url: '/login',
+      method: 'POST',
+      data: $('#login').serialize(),
+      dataType: 'json',
+      success: function (res) {
+        var errCode = ['', '邮箱错误', '密码错误', '服务器繁忙']
+        var msg = res.msg
+        if (msg == '200') {
+          falert.style = 'visibility:hidden;opacity:0;'
+          ualert.style = 'opacity:1'
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 1500)
+        } else {
+          var errmsg = errCode[parseInt(msg) - 100]
+          falert.innerText = errmsg
+          falert.style = 'opacity:1'
+        }
+      },
+      error: function (err) {
+        console.log(err)
+      }
+    })
+  })
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/piao.js"></script>
+
+</html>

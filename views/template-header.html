@@ -1,0 +1,12 @@
+<header>
+  <h4 class="text-left">bbs论坛</h4>
+  <h4 class='text-right'>
+    {{ if loginUser }}
+    <span>欢迎 {{ loginUser.user_name}}</span>
+    <a href="logout"><span>退出登录</span></a>
+    {{ else if !loginUser}}
+    <a href="login"><span>登录</span></a>
+    <a href="regist"><span>注册</span></a>
+    {{ /if }}
+  </h4>
+</header>

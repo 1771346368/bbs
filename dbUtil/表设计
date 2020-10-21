@@ -1,0 +1,32 @@
+bbs_admin {
+  admin_id not NULL,
+  admin_login_name, varchar deafult NULL,
+  admin_login_pwd varchar default NULL
+}
+bbs_user {
+  user_id int not NULL 
+  user_name string
+  user_password string
+  user_email string
+  user_sex int [-1 0 1] # -1 保密 0 女 1 男
+  user_phone int
+  user_status int [0 1 2] # 用户状态，0 正常， 1 评论禁止， 2登录禁止
+  user_time date # 注册时间
+  
+}
+bbs_article {
+  art_id not NULL,
+  art_user_id default NULL,
+  art_title varchar default NULL
+  art_content string default NULL, # 正文
+  art_view int deafult NULL # 浏览量
+  art_cre_time date default NULL #创建时间 
+  art_com_num int default NULL #评论数
+}
+bbs_comment {
+  com_id int not NULL
+  com_content string # 评论正文
+  com_art_id int # 文章id
+  com_user_id int # 评论用户的id
+  com_time date # 评论时间
+}
