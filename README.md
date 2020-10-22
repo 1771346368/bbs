@@ -74,6 +74,8 @@ bbs_comment {
 ## 演示地址
 
 [演示地址](https://test.drghost.top/)
+账号：testCode
+密码：dr6234
 
 ## 项目截图
 
